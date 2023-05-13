@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="7.0.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="7.0.5" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Authentication" Version="7.0.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Shared\SampleProjects.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EditorConfigFiles Remove="E:\Projects\SampleProjects.Blazor\SampleProjects.Blazor-master\SampleProjects\Client\Pages\.editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="E:\Projects\SampleProjects.Blazor\SampleProjects.Blazor-master\SampleProjects\Client\Pages\.editorconfig" />
+  </ItemGroup>
+
+</Project>

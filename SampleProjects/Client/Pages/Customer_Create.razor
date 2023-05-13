@@ -1,0 +1,21 @@
+﻿@page "/Customer_Create"
+<h3>Customer_Create</h3>
+
+<EditForm Model="@customerVM" OnValidSubmit="Create" class="card card-body bg-light">
+    <div>
+        <InputText id="@nameof(customerVM.FirstName)" @bind-Value="customerVM.FirstName" class="form-control" />
+    </div>
+    <div>
+        <InputText id="@nameof(customerVM.LastName)" @bind-Value="customerVM.LastName" class="form-control" />
+    </div>
+    <div>
+        <InputText id="@nameof(customerVM.Mobile)" @bind-Value="customerVM.Mobile" class="form-control" />
+    </div>
+    <div>
+        <button type="submit" class="btn btn-primary">ذخیره</button>
+    </div>
+</EditForm>
+
+
+
+

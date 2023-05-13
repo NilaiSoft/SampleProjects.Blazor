@@ -1,0 +1,38 @@
+﻿@page "/Customer_Index"
+<h3>Customer</h3>
+
+<div class="nav-item px-3">
+    <NavLink class="nav-link" href="Customer_Create">
+        <span class="oi oi-plus" aria-hidden="true"></span> Create
+    </NavLink>
+</div>
+
+@if (customerDtos == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>Mobile</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var customerDto in customerDtos)
+            {
+                <tr>
+                    <td>@customerDto.FirstName</td>
+                    <td>@customerDto.LastName</td>
+                    <td>@customerDto.Mobile</td>
+                    <button type="button" @onclick="(async() =>await Delete(customerDto.Id))">Delete</button>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+

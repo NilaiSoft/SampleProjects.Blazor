@@ -1,0 +1,15 @@
+﻿@page "/Product_Create"
+<h3>Product Create</h3>
+
+<EditForm Model="@productVM" OnValidSubmit="Create" class="card card-body bg-light">
+    <div>
+        <InputText id="@nameof(productVM.Name)" @bind-Value="productVM.Name" class="form-control" />
+    </div>
+    <div>
+        <input type="text" id="@nameof(productVM.Price)" @bind-value="@productVM.Price" class="form-control" />
+    </div>
+    <div>
+        <button type="submit" class="btn btn-primary">ذخیره</button>
+    </div>
+</EditForm>
+

@@ -1,0 +1,18 @@
+﻿@page "/Product_Edit/{Id:int}"
+<h3>Product Create</h3>
+
+<EditForm Model="@productVM" OnValidSubmit="Edit" class="card card-body bg-light">
+    <div>
+        <input type="hidden" value="@productVM.Id" />
+    </div>
+    <div>
+        <InputText id="@nameof(productVM.Name)" @bind-Value="productVM.Name" class="form-control" />
+    </div>
+    <div>
+        <input type="text" id="@nameof(productVM.Price)" @bind-value="@productVM.Price" class="form-control" />
+    </div>
+    <div>
+        <button type="submit" class="btn btn-primary">ذخیره</button>
+    </div>
+</EditForm>
+
