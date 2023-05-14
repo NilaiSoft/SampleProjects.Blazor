@@ -19,6 +19,7 @@ else
                 <th>FirstName</th>
                 <th>LastName</th>
                 <th>Mobile</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -28,8 +29,10 @@ else
                     <td>@customerDto.FirstName</td>
                     <td>@customerDto.LastName</td>
                     <td>@customerDto.Mobile</td>
-                    <a href="/Customer_Edit/@customerDto.Id" role="button" class="btn btn-secondary">Edit</a>
-                    <button type="button" @onclick="(async() =>await Delete(customerDto.Id))" class="btn btn-danger">Delete</button>
+                    <td>
+                        <a href="/Customer_Edit/@customerDto.Id" role="button" class="btn btn-secondary">Edit</a>
+                        <button type="button" @onclick="(async() =>await Delete(customerDto.Id))" class="btn btn-danger">Delete</button>
+                    </td>
                 </tr>
             }
         </tbody>

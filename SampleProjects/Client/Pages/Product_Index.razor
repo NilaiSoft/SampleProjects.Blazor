@@ -18,16 +18,19 @@ else
             <tr>
                 <th>Name</th>
                 <th>Price</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var customerDto in productDtos)
+            @foreach (var productDto in productDtos)
             {
                 <tr>
-                    <td>@customerDto.Name</td>
-                    <td>@customerDto.Price</td>
-                    <a class="btn btn-secondary" href="/Product_Edit/@customerDto.Id" role="button">Edit</a>
-                    <button type="button" @onclick="(async() =>await Delete(customerDto.Id))" role="button">Delete</button>
+                    <td>@productDto.Name</td>
+                    <td>@productDto.Price</td>
+                    <td>
+                        <a class="btn btn-secondary" href="/Product_Edit/@productDto.Id" role="button">Edit</a>
+                        <button type="button" @onclick="(async() =>await Delete(productDto.Id))" class="btn btn-danger">Delete</button>
+                    </td>
                 </tr>
             }
         </tbody>
