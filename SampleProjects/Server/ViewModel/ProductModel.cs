@@ -1,4 +1,4 @@
-﻿namespace SampleProjects.Server.ViewModel
+﻿namespace SampleProjects.Server.Dtos
 {
     public class ProductModel
     {

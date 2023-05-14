@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SampleProjects.Server.Data;
-using SampleProjects.Server.ViewModel;
+using SampleProjects.Server.Dtos;
 using SampleProjects.Server.Models;
 
 namespace SampleProjects.Server.Services

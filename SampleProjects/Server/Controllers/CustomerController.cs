@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using SampleProjects.Server.ViewModel;
+using SampleProjects.Server.Dtos;
 using SampleProjects.Server.Models;
 using SampleProjects.Server.Services;
 using SampleProjects.Web.BaseController;
