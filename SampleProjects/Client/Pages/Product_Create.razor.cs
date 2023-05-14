@@ -8,15 +8,6 @@ namespace SampleProjects.Client.Pages
     {
         private ProductVM? productVM = new();
 
-        [Parameter]
-        public int Id { get; set; }
-
-        protected async override Task OnInitializedAsync()
-        {
-            productVM = await _httpClient.GetFromJsonAsync<ProductVM>($"api/Product/Edit/{Id}");
-
-        }
-
         public async Task Create()
         {
             var responce = await _httpClient.PostAsJsonAsync("api/Product/Create", productVM);

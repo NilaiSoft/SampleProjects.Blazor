@@ -2,13 +2,13 @@
 <h3>Product Create</h3>
 
 <EditForm Model="@productVM" OnValidSubmit="Create" class="card card-body bg-light">
-    <div>
+    <div class="mb-3 col-xl-5">
         <InputText id="@nameof(productVM.Name)" @bind-Value="productVM.Name" class="form-control" />
     </div>
-    <div>
+    <div class="mb-3 col-xl-5">
         <input type="text" id="@nameof(productVM.Price)" @bind-value="@productVM.Price" class="form-control" />
     </div>
-    <div>
+    <div class="mb-3 col-xl-5">
         <button type="submit" class="btn btn-primary">ذخیره</button>
     </div>
 </EditForm>

@@ -28,7 +28,8 @@ else
                     <td>@customerDto.FirstName</td>
                     <td>@customerDto.LastName</td>
                     <td>@customerDto.Mobile</td>
-                    <button type="button" @onclick="(async() =>await Delete(customerDto.Id))">Delete</button>
+                    <a href="/Customer_Edit/@customerDto.Id" role="button" class="btn btn-secondary">Edit</a>
+                    <button type="button" @onclick="(async() =>await Delete(customerDto.Id))" class="btn btn-danger">Delete</button>
                 </tr>
             }
         </tbody>
