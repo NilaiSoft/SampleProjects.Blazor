@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using SampleProjects.Server.Dtos;
+using SampleProjects.Server.ViewModel;
 using SampleProjects.Server.Models;
 
 public class MappingProfile : Profile
