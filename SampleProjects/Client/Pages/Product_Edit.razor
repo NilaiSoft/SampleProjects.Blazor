@@ -1,6 +1,8 @@
 ﻿@page "/Product_Edit/{Id:int}"
 <h3>Product Create</h3>
-
+<p>
+    This component edit product data to the server.
+</p>
 <EditForm Model="@productVM" OnValidSubmit="Edit" class="card card-body bg-light">
     <div class="mb-3 col-xl-5">
         <input type="hidden" value="@productVM.Id" />

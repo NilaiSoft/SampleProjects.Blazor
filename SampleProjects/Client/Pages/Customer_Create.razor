@@ -1,6 +1,8 @@
 ﻿@page "/Customer_Create"
 <h3>Customer_Create</h3>
-
+<p>
+    This component insert customer data to the server.
+</p>
 <EditForm Model="@customerVM" OnValidSubmit="Create" class="card card-body bg-light">
     <div class="mb-3 col-xl-5">
         <InputText id="@nameof(customerVM.FirstName)" @bind-Value="customerVM.FirstName" class="form-control" />

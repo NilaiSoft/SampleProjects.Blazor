@@ -1,6 +1,8 @@
 ﻿@page "/Customer_Edit/{Id:int}"
 <h3>Customer_Edit</h3>
-
+<p>
+    This component edit customer data to the server.
+</p>
 <EditForm Model="@customerVM" OnValidSubmit="Edit" class="card card-body bg-light">
     <div class="mb-3 col-xl-5">
         <input type="hidden" value="@customerVM.Id" />
