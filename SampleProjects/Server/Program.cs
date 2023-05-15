@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.EntityFrameworkCore;
+using SampleProjects.Server;
 using SampleProjects.Server.Data;
 using SampleProjects.Server.Models;
 using SampleProjects.Server.Services;
@@ -46,6 +47,8 @@ else
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+
+app.MyMidlware();
 
 app.UseHttpsRedirection();
 
