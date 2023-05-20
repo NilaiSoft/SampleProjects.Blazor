@@ -18,6 +18,7 @@ else
             <tr>
                 <th>Name</th>
                 <th>Price</th>
+                <th>GuidRecord</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -27,6 +28,7 @@ else
                 <tr>
                     <td>@productDto.Name</td>
                     <td>@productDto.Price</td>
+                    <td>@productDto.GuidRecord</td>
                     <td>
                         <a class="btn btn-secondary" href="/Product_Edit/@productDto.Id" role="button">Edit</a>
                         <button type="button" @onclick="(async() =>await Delete(productDto.Id))" class="btn btn-danger">Delete</button>
