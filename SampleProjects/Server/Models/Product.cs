@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SampleProjects.Server.Models
 {
-    public class Product : BaseEntity
+    public class Product : BaseEntity, ISoftDeletedEntity
     {
         public Product()
         {
@@ -17,5 +17,8 @@ namespace SampleProjects.Server.Models
         public decimal Price { get; set; }
 
         public Guid GuidRecord { get; set; }
+        
+        [ScaffoldColumn(false)]
+        public bool Deleted { get; set; }
     }
 }

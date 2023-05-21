@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using SampleProjects.Server.Data;
 using System.Linq.Expressions;
 using SampleProjects.Server.Models;
+using System;
 
 namespace SampleProjects.Server.Services
 {
@@ -63,9 +64,21 @@ namespace SampleProjects.Server.Services
                 var entity = await _dbSet.Where(_pridicate)
                                         .FirstOrDefaultAsync();
 
-                if (entity == null)
-                    return 0;
-                _dbSet.Remove(entity);
+                switch (entity)
+                {
+                    case null:
+                        throw new ArgumentNullException(nameof(entity));
+
+                    case ISoftDeletedEntity softDeletedEntity:
+                        softDeletedEntity.Deleted = true;
+                        await EditAsync(entity);
+                        break;
+
+                    default:
+                        _dbSet.Remove(entity);
+                        break;
+                }
+
                 return await SaveChangesAsync();
             }
             catch
@@ -73,6 +86,7 @@ namespace SampleProjects.Server.Services
                 return 0;
             }
         }
+
         public async Task<TEntity?> FindAsync(Expression<Func<TEntity, bool>> _pridicate)
         {
             return await _dbSet.FindAsync(_pridicate);
@@ -83,25 +97,44 @@ namespace SampleProjects.Server.Services
             return await _dbSet.FirstOrDefaultAsync(_pridicate);
         }
 
-        public async Task<IList<TEntity>> GetsAsync(Expression<Func<TEntity, bool>> _pridicate)
+        public async Task<IList<TEntity>> GetAllAsync(Expression<Func<TEntity, bool>> _pridicate)
         {
-            return await _dbSet.Where(_pridicate).ToListAsync();
+            var query = await _dbSet.Where(_pridicate).ToListAsync();
+
+            return AddDeletedFilter(query, false).ToList();
         }
 
-        public async Task<IList<TEntity>> GetsAsync()
+        protected IEnumerable<TEntity> AddDeletedFilter(IList<TEntity> query, bool includeDeleted)
         {
-            return await _dbSet.ToListAsync();
+            if (includeDeleted)
+                return query;
+
+            if (typeof(TEntity).GetInterface(nameof(ISoftDeletedEntity)) == null)
+                return query;
+
+            return query.OfType<ISoftDeletedEntity>().Where(entry => !entry.Deleted).OfType<TEntity>();
         }
 
-        public async Task<IList<TEntity>> GetsAsync(Expression<Func<TEntity, TEntity>> expression)
+        public async Task<IList<TEntity>> GetAllAsync()
         {
-            return await _dbSet.Select(expression).ToListAsync();
+            var query = await _dbSet.ToListAsync();
+
+            return AddDeletedFilter(query, false).ToList();
         }
 
-        public async Task<IList<TEntity>> GetsAsync
+        public async Task<IList<TEntity>> GetAllAsync(Expression<Func<TEntity, TEntity>> expression)
+        {
+            var query = await _dbSet.Select(expression).ToListAsync();
+
+            return AddDeletedFilter(query, false).ToList();
+        }
+
+        public async Task<IList<TEntity>> GetAllAsync
             (Expression<Func<TEntity, bool>> _pridicate, Expression<Func<TEntity, TEntity>> _selectList)
         {
-            return await _dbSet.Where(_pridicate).Select(_selectList).ToListAsync();
+            var query = await _dbSet.Where(_pridicate).Select(_selectList).ToListAsync();
+
+            return AddDeletedFilter(query, false).ToList();
         }
 
         #region UpdateUseZEntity

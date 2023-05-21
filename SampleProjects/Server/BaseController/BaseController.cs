@@ -21,7 +21,7 @@ namespace SampleProjects.Web.BaseController
         [Route(nameof(Index))]
         public virtual async Task<IActionResult> Index()
         {
-            var entity = await _repository.GetsAsync();
+            var entity = await _repository.GetAllAsync();
             var model = _mapper.Map<IList<TVModel>>(entity);
             return Ok(model);
         }
