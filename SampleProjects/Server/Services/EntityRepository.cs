@@ -8,14 +8,14 @@ using System;
 
 namespace SampleProjects.Server.Services
 {
-    public class Repository<TEntity, TModel> : IRepository<TEntity, TModel>
+    public class EntityRepository<TEntity, TModel> : IEntityRepository<TEntity, TModel>
         where TEntity : BaseEntity
     {
         protected ApplicationDbContext _context;
         //private readonly IUnitOfWork _uow;
         internal DbSet<TEntity> _dbSet;
 
-        public Repository(ApplicationDbContext context)
+        public EntityRepository(ApplicationDbContext context)
         {
             _context = context;
             _dbSet = _context.Set<TEntity>();

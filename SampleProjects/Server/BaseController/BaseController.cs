@@ -8,10 +8,10 @@ namespace SampleProjects.Web.BaseController
     public class BaseController<TEntity, TVModel> : Controller,
         IBaseController<TEntity, TVModel> where TEntity : BaseEntity
     {
-        private readonly IRepository<TEntity, TVModel> _repository;
+        private readonly IEntityRepository<TEntity, TVModel> _repository;
         private readonly IMapper _mapper;
 
-        public BaseController(IRepository<TEntity, TVModel> repository, IMapper mapper)
+        public BaseController(IEntityRepository<TEntity, TVModel> repository, IMapper mapper)
         {
             _repository = repository;
             _mapper = mapper;

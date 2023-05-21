@@ -11,7 +11,7 @@ namespace SampleProjects.Server.Controllers
     [ApiController]
     public class CustomerController : BaseController<Customer, CustomerModel>
     {
-        public CustomerController(IRepository<Customer, CustomerModel> cityRepository, IMapper mapper)
+        public CustomerController(IEntityRepository<Customer, CustomerModel> cityRepository, IMapper mapper)
             : base(cityRepository, mapper)
         {
         }

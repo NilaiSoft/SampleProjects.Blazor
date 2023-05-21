@@ -19,7 +19,7 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.R
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
 builder.Services.AddScoped<ICustomerService, CustomerService>();
-builder.Services.AddScoped(typeof(IRepository<,>), typeof(Repository<,>));
+builder.Services.AddScoped(typeof(IEntityRepository<,>), typeof(EntityRepository<,>));
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
 

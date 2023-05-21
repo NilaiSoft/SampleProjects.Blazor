@@ -11,7 +11,7 @@ namespace SampleProjects.Server.Controllers
     [ApiController]
     public class ProductController : BaseController<Product, ProductModel>
     {
-        public ProductController(IRepository<Product, ProductModel> repository, IMapper mapper)
+        public ProductController(IEntityRepository<Product, ProductModel> repository, IMapper mapper)
             : base(repository, mapper)
         {
         }

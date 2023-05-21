@@ -5,7 +5,7 @@ using SampleProjects.Server.Models;
 
 namespace SampleProjects.Server.Services
 {
-    public class CustomerService : Repository<Customer, CustomerModel>, ICustomerService
+    public class CustomerService : EntityRepository<Customer, CustomerModel>, ICustomerService
     {
         public CustomerService(ApplicationDbContext dbContext) : base(dbContext)
         {

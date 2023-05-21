@@ -3,7 +3,7 @@ using SampleProjects.Server.Models;
 
 namespace SampleProjects.Server.Services
 {
-    public interface ICustomerService : IRepository<Customer, CustomerModel>
+    public interface ICustomerService : IEntityRepository<Customer, CustomerModel>
     {
 
     }
